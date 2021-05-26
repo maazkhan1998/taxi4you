@@ -49,7 +49,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
             value = (1 - (value.abs() * 0.5)).clamp(0.0, 1);
          }
          return new SizedBox(
-            height: Curves.easeIn.transform(value) * 500,
+            height: Curves.easeIn.transform(value) * ScreenUtil().setHeight(500),
             child: child
          ,);
          },
@@ -57,13 +57,13 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(img, height:MySize.getScaledSizeHeight(399)),
+          Image.asset(img, height:MySize.getScaledSizeHeight(400)),
           SizedBox(
             height: ScreenUtil().setHeight(20.0),
           ),
           Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(10)),
               child: Text(
                 descr,
                 textAlign: TextAlign.left,
@@ -146,7 +146,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                       color: Colors.white.withOpacity(0.7),fontSize: 12.0),
                   )),
             ),
-            SizedBox(height:MySize.getScaledSizeHeight(30)),
+            SizedBox(height:MySize.getScaledSizeHeight(80)),
             Expanded(
                 child: PageView.builder(
                   controller: controller,
@@ -162,8 +162,8 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
               introPage(assetList[i], 'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei', i),
             )),
             Container(
-              margin: EdgeInsets.only(bottom: 20.0),
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(20)),
+              padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
               height: ScreenUtil().setHeight(80.0),
               width: double.infinity,
               child: Row(
