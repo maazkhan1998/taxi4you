@@ -84,16 +84,14 @@ class _HomeScrState extends State<HomeScr> {
                   Container(
                       height: ScreenUtil().setHeight(185.0),
                       width: double.infinity,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(
-                                'assets/carimg.jpeg',
+                      child: Image.asset(
+                                'assets/carimg.png',
+                                fit: BoxFit.cover,
                               ),
-                              fit: BoxFit.cover))),
+                  ),
                   Container(
                     height: ScreenUtil().setHeight(185.0),
                     width: double.infinity,
-                    color: Colors.black.withOpacity(0.5),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
