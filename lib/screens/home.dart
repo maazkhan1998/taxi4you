@@ -133,13 +133,16 @@ class _HomeScrState extends State<HomeScr> {
               Container(
                 height: ScreenUtil().setHeight(580.0),
                 width: double.infinity,
-                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                decoration: BoxDecoration(color: Colors.white, 
+                boxShadow: [
                   BoxShadow(
                       color: Colors.grey.shade300,
                       spreadRadius: 5.0,
                       blurRadius: 15.0,
-                      offset: Offset(0.0, 3.0))
-                ]),
+                      offset: Offset(0.0, 3.0)
+                    )
+                  ]
+                ),
                 child: Column(
                   children: [
                     SizedBox(
