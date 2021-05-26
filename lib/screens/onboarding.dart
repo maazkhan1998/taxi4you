@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taxiforyou/utils/SizeConfig.dart';
 
 class OnBoardingScr extends StatefulWidget {
   const OnBoardingScr({Key key}) : super(key: key);
@@ -9,44 +9,6 @@ class OnBoardingScr extends StatefulWidget {
 }
 
 class _OnBoardingScrState extends State<OnBoardingScr> {
-  // List<Slide> slides = [];
-
-  // Function goToTab;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-
-  //   slides.add(
-  //     new Slide(
-  //       title: 'skip',
-  //       widgetTitle: Text('skip'),
-  //       description:
-  //           "Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei",
-  //       styleDescription:
-  //           TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 14.0, letterSpacing: 0.4),
-  //       pathImage: "assets/Phone Left.png",
-  //     ),
-  //   );
-  //   slides.add(
-  //     new Slide(
-  //       description:
-  //           "Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei",
-  //       styleDescription:
-  //           TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 14.0, letterSpacing: 0.4),
-  //       pathImage: "assets/Phone Medium.png",
-  //     ),
-  //   );
-  //   slides.add(
-  //     new Slide(
-  //       description:
-  //           "Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei",
-  //       styleDescription:
-  //           TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 14.0, letterSpacing: 0.4),
-  //       pathImage: "assets/Phone Right.png",
-  //     ),
-  //   );
-  // }
 
   Widget renderNextBtn() {
     return Image.asset('assets/arrow.png');
@@ -72,11 +34,11 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
       children: [
         Image.asset(img, scale: 1.3),
         SizedBox(
-          height: ScreenUtil().setHeight(20.0),
+          height: MySize.size20,
         ),
         Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 30.0),
+            padding: EdgeInsets.symmetric(horizontal: MySize.size30),
             child: Text(
               descr,
               textAlign: TextAlign.left,
@@ -107,7 +69,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
       duration: Duration(milliseconds: 300),
        curve: Curves.easeInToLinear,
       margin: EdgeInsets.symmetric(horizontal: 8.0),
-      height: 20,width: 20,
+      height: MySize.size20,width: MySize.size20,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
@@ -117,7 +79,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
         )
       ),
       child: Container(
-        height: 12,width:12,
+        height: MySize.size12,width:MySize.size12,
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle
@@ -127,9 +89,9 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
     :AnimatedContainer(
       duration: Duration(milliseconds: 300),
       curve: Curves.easeInToLinear,
-      margin: EdgeInsets.symmetric(horizontal: 8.0),
-      height:  8,
-      width: 8,
+      margin: EdgeInsets.symmetric(horizontal: MySize.size8),
+      height:  MySize.size8,
+      width: MySize.size8,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.white.withAlpha(120),
@@ -139,6 +101,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
 
   @override
   Widget build(BuildContext context) {
+    MySize().init(context);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.teal[500].withOpacity(1),
@@ -148,7 +111,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
               onTap: (){},
               child: Container(
                   width: double.infinity,
-                  margin: EdgeInsets.only(right: 35.0, top: 20.0),
+                  margin: EdgeInsets.only(right: MySize.size34, top: MySize.size20),
                   child: Text(
                     'SKIP',
                     textAlign: TextAlign.right,
@@ -157,9 +120,9 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                       color: Colors.white.withOpacity(0.7),fontSize: 12.0),
                   )),
             ),
-            SizedBox(height:20.0),
+            SizedBox(height:MySize.size20),
             Container(
-              height: ScreenUtil().setHeight(500.0),
+              height: MySize.getScaledSizeHeight(500),
                 child: PageView(
                   onPageChanged: (int page){
                     setState(() {
@@ -178,8 +141,8 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
               ],
             )),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30.0),
-              height: ScreenUtil().setHeight(80.0),
+              padding: EdgeInsets.symmetric(horizontal: MySize.size30),
+              height: MySize.size80,
               width: double.infinity,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -193,8 +156,8 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                       color:Colors.white.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(50.0)
                     ),
-                    height: ScreenUtil().setHeight(55.0),
-                    width: ScreenUtil().setWidth(85.0),
+                    height: MySize.size54,
+                    width: MySize.getScaledSizeWidth(85),
                     child: Image.asset('assets/arrow.png',)
                   )
                 ],
