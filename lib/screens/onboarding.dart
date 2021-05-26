@@ -45,7 +45,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
          double value = 1.0;
          if (controller.position.haveDimensions) {
             value = controller.page - index;
-            value = (1 - (value.abs() * 0.5)).clamp(0.0, 0.5);
+            value = (1 - (value.abs() * 0.5)).clamp(0.0, 1);
          }
          return new SizedBox(
             height: Curves.easeIn.transform(value) * 500,
@@ -56,7 +56,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(img, height:MySize.getScaledSizeHeight(500)),
+          Image.asset(img, height:MySize.getScaledSizeHeight(399)),
           SizedBox(
             height: MySize.size20,
           ),
