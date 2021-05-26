@@ -10,6 +10,8 @@ class OnBoardingScr extends StatefulWidget {
 
 class _OnBoardingScrState extends State<OnBoardingScr> {
 
+  PageController controller=PageController(initialPage: 0,viewportFraction: 0.8);
+
   Widget renderNextBtn() {
     return Image.asset('assets/arrow.png');
   }
@@ -28,29 +30,52 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
     );
   }
 
-  introPage(String img, String descr) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(img, scale: 1.3),
-        SizedBox(
-          height: MySize.size20,
-        ),
-        Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: MySize.size30),
-            child: Text(
-              descr,
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                height: 1.4,
-                fontFamily: 'roman',
-                color: Colors.white.withOpacity(0.7),
-                fontWeight: FontWeight.bold,letterSpacing: 0.4,
-                fontSize: 14.0,
-              ),
-            ))
-      ],
+  List<String> assetList=[
+    'assets/Phone Left.png',
+    'assets/Phone Medium.png',
+    'assets/Phone Right.png'
+  ];
+
+
+
+  introPage(String img, String descr,int index) {
+    return AnimatedBuilder(
+      animation: controller,
+      builder: (context, child) {
+         double value = 1.0;
+         if (controller.position.haveDimensions) {
+            value = controller.page - index;
+            value = (1 - (value.abs() * 0.5)).clamp(0.0, 0.5);
+         }
+         return new SizedBox(
+            height: Curves.easeIn.transform(value) * 500,
+            child: child
+         ,);
+         },
+
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(img, height:MySize.getScaledSizeHeight(500)),
+          SizedBox(
+            height: MySize.size20,
+          ),
+          Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(horizontal: MySize.size10),
+              child: Text(
+                descr,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  height: 1.6,
+                  fontFamily: 'roman',
+                  color: Colors.white.withOpacity(0.7),
+                  fontWeight: FontWeight.bold,letterSpacing: 0.4,
+                  fontSize: 14.0,
+                ),
+              ))
+        ],
+      ),
     );
   }
 
@@ -120,10 +145,11 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                       color: Colors.white.withOpacity(0.7),fontSize: 12.0),
                   )),
             ),
-            SizedBox(height:MySize.size20),
-            Container(
-              height: MySize.getScaledSizeHeight(500),
-                child: PageView(
+            SizedBox(height:MySize.getScaledSizeHeight(30)),
+            Expanded(
+                child: PageView.builder(
+                  controller: controller,
+                  itemCount:3,
                   onPageChanged: (int page){
                     setState(() {
                       _currentPage=page;
@@ -131,16 +157,11 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                   },
               scrollDirection: Axis.horizontal,
               physics: ClampingScrollPhysics(),
-              children: [
-                introPage('assets/Phone Left.png',
-                    'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei'),
-                introPage('assets/Phone Medium.png',
-                    'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei'),
-                introPage('assets/Phone Right.png',
-                    'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei'),
-              ],
+              itemBuilder: (context,i)=>
+              introPage(assetList[i], 'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei', i),
             )),
             Container(
+              margin: EdgeInsets.only(bottom:MySize.size20),
               padding: EdgeInsets.symmetric(horizontal: MySize.size30),
               height: MySize.size80,
               width: double.infinity,
