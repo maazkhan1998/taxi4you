@@ -43,7 +43,7 @@ class _VideoCardState extends State<VideoCard> {
                       child: Container(
                         padding: const EdgeInsets.only(left: 12.0,right: 8.0,bottom: 3.0),
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(

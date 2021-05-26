@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'screens/home.dart';
 import 'screens/onboarding.dart';
+import 'screens/ourfleet.dart';
+import 'screens/videos.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
         title: 'Taxi For You',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Color(0xFF3DB1A2)),
-        home: OnBoardingScr(),
+        home: OurFleetScr(),
       ),
     ); 
   }

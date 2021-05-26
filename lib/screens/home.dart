@@ -11,7 +11,7 @@ class _HomeScrState extends State<HomeScr> {
   serviceCard(String image, String service) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal:5),
-      height: ScreenUtil().setHeight(140.0),
+      height: ScreenUtil().setHeight(110),
       width: ScreenUtil().setWidth(140.0),
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
         BoxShadow(color: Colors.grey.shade300, blurRadius: 10.0)
@@ -26,14 +26,14 @@ class _HomeScrState extends State<HomeScr> {
             child: Container(
               margin: EdgeInsets.only(top: 4.0),
               child: Image.asset(
-                'assets/play.png',height: 22.0,width: 22.0,
+                'assets/play.png',height: ScreenUtil().setHeight(20),width: ScreenUtil().setWidth(20),
               ),
             ),
           ),
           Image.asset(
             image,
-            height: 55.0,
-            width: 89.0,
+            height: ScreenUtil().setHeight(40),
+            width: ScreenUtil().setWidth(89),
           ),
           SizedBox(height: ScreenUtil().setHeight(8.0)),
           Text(
@@ -82,15 +82,15 @@ class _HomeScrState extends State<HomeScr> {
               Stack(
                 children: [
                   Container(
-                      height: ScreenUtil().setHeight(185.0),
+                      height: ScreenUtil().setHeight(150),
                       width: double.infinity,
                       child: Image.asset(
                                 'assets/carimg.png',
-                                fit: BoxFit.cover,
+                                fit: BoxFit.fill,
                               ),
                   ),
                   Container(
-                    height: ScreenUtil().setHeight(185.0),
+                    height: ScreenUtil().setHeight(150),
                     width: double.infinity,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -129,7 +129,7 @@ class _HomeScrState extends State<HomeScr> {
                 ],
               ),
               Container(
-                height: ScreenUtil().setHeight(580.0),
+                height: ScreenUtil().setHeight(460),
                 width: double.infinity,
                 decoration: BoxDecoration(color: Colors.white, 
                 boxShadow: [
@@ -144,7 +144,7 @@ class _HomeScrState extends State<HomeScr> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: ScreenUtil().setHeight(15.0),
+                      height: ScreenUtil().setHeight(15),
                     ),
                     Text('Unsere Leistungen',
                         style: TextStyle(
@@ -153,10 +153,10 @@ class _HomeScrState extends State<HomeScr> {
                             fontWeight: FontWeight.bold,
                             color: Colors.black.withOpacity(0.51))),
                     SizedBox(
-                      height: ScreenUtil().setHeight(26.0),
+                      height: ScreenUtil().setHeight(20),
                     ),
                     Wrap(
-                      alignment: WrapAlignment.center,spacing: 30.0,runSpacing: 24.0,
+                      alignment: WrapAlignment.center,spacing: ScreenUtil().setWidth(30),runSpacing: ScreenUtil().setHeight(22),
                       children: [
                         serviceCard('assets/page-1 (1).png', 'Schüler Taxi'),
                         serviceCard(
@@ -176,8 +176,8 @@ class _HomeScrState extends State<HomeScr> {
               Text('Verbreitetes Netzwerk',
                   style: TextStyle(
                       fontFamily: 'medium',
-                      fontSize: 21.5,letterSpacing: 1.15,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 23,letterSpacing: 1.15,
+                      fontWeight: FontWeight.w500,
                       color: Color(0xFF3DB1A2))),
               SizedBox(
                 height: ScreenUtil().setHeight(3.0),
@@ -199,9 +199,9 @@ class _HomeScrState extends State<HomeScr> {
                     style: TextStyle(
                         fontFamily: 'medium',
                         fontSize: 13.5,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         height: 1.5,
-                        color: Colors.black54)),
+                        color: Colors.black87)),
               ),
             ],
           ),

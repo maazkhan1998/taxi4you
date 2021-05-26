@@ -8,6 +8,12 @@ class VideosScr extends StatefulWidget {
 }
 
 class _VideosScrState extends State<VideosScr> {
+
+  List<String> images=[
+    'assets/video1.png',
+    'assets/NoPath - Kopya (16).png',
+    'assets/NoPath - Kopya (17).png'
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -46,11 +52,10 @@ class _VideosScrState extends State<VideosScr> {
         height: ScreenUtil().screenHeight,
         width: double.infinity,
         child: ListView.separated(
-
             separatorBuilder: (BuildContext context, int index) =>
                 SizedBox(height: ScreenUtil().setHeight(5.0)),
             itemBuilder: (BuildContext context, int index) {
-              return VideoCard(title: 'Schuler Taxi',imagePath: 'assets/carimg.jpeg',) ;
+              return VideoCard(title: 'Schuler Taxi',imagePath: images[index],) ;
             },
             itemCount: 3),
       ),

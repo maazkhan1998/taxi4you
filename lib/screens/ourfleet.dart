@@ -51,7 +51,7 @@ class _OurFleetScrState extends State<OurFleetScr> {
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
             separatorBuilder: (BuildContext context, int index) =>
-                SizedBox(height: ScreenUtil().setHeight(3.0)),
+                SizedBox(height: ScreenUtil().setHeight(5)),
             itemBuilder: (BuildContext context, int index) {
               return FleetCard(carName: 'Mercedes S-Klasse',image: 'assets/blackcar.png',capacity: '3 Passagiere',luggage: '2 Passagiere Inklusive Wasser (33 cl) Zuschlag 20.-*');
             },
