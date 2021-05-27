@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taxiforyou/screens/contact.dart';
+import '../widgets/customtextfield.dart';
+import '../widgets/datetimefield.dart';
+import '../widgets/locationfield.dart';
+import '../widgets/messagefield.dart';
+import '../widgets/FABAppBar.dart';
 import '../utils/SizeConfig.dart';
+import 'homeView.dart';
 
 class HomeScr extends StatefulWidget {
   @override
@@ -8,47 +15,115 @@ class HomeScr extends StatefulWidget {
 }
 
 class _HomeScrState extends State<HomeScr> {
-  serviceCard(String image, String service) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal:5),
-      height: ScreenUtil().setHeight(110),
-      width: ScreenUtil().setWidth(140.0),
-      decoration: BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(color: Colors.grey.shade300, blurRadius: 10.0)
-      ],
-      borderRadius: BorderRadius.circular(10.0)
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              margin: EdgeInsets.only(top: 4.0),
-              child: Image.asset(
-                'assets/play.png',height: ScreenUtil().setHeight(20),width: ScreenUtil().setWidth(20),
-              ),
-            ),
-          ),
-          Image.asset(
-            image,
-            height: ScreenUtil().setHeight(40),
-            width: ScreenUtil().setWidth(89),
-          ),
-          SizedBox(height: ScreenUtil().setHeight(8.0)),
-          Text(
-            service,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: ScreenUtil().setSp(14.0),
-                color: Colors.black.withOpacity(0.5),
-                fontFamily: 'heavy'),
-          ),
-        ],
-      ),
-    );
+  TextEditingController name = TextEditingController();
+  TextEditingController number = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController location = TextEditingController();
+  TextEditingController location2 = TextEditingController();
+  TextEditingController date = TextEditingController();
+
+  List<FABBottomAppBarItem> appbaritems = [
+    FABBottomAppBarItem(text: 'Home', image: 'assets/outlined-ui-home@2x.png'),
+    FABBottomAppBarItem(text: 'Works', image: 'assets/clipboard@3x.png'),
+    FABBottomAppBarItem(text: 'Calendar', image: 'assets/date@3x.png'),
+    FABBottomAppBarItem(text: 'Profile', image: 'assets/account@3x.png'),
+  ];
+
+  int _lastSelected = 0;
+
+  void _selectedTab(int index) {
+    setState(() {
+      _lastSelected = index;
+    });
   }
 
+  _getLocation() {}
+
+  _bookNow() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return SimpleDialog(
+            backgroundColor: Color(0xFFdedede),
+            elevation: 0.5,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 3.0, horizontal: 12.0),
+            titlePadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+            title: Text('Jetzt Buchen',
+                style: TextStyle(
+                    fontFamily: 'medium',fontWeight: FontWeight.bold,letterSpacing: -0.5,
+                    fontSize: ScreenUtil().setSp(20.0),
+                    color: Colors.black54)),
+            children: [
+              SizedBox(height: ScreenUtil().setHeight(3.0)),
+              CustomTextField(
+                  hint: 'Name',
+                  inputType: TextInputType.text,
+                  controller: name),
+              SizedBox(height: ScreenUtil().setHeight(15.0)),
+              CustomTextField(
+                  hint: 'Phone',
+                  inputType: TextInputType.number,
+                  controller: number),
+              SizedBox(height: ScreenUtil().setHeight(15.0)),
+              CustomTextField(
+                  hint: 'Email',
+                  inputType: TextInputType.emailAddress,
+                  controller: email),
+              SizedBox(height: ScreenUtil().setHeight(15.0)),
+              LocationField(
+                  hint: 'Abholort*',
+                  inputType: TextInputType.text,
+                  controller: location,
+                  getlocation: _getLocation),
+              SizedBox(height: ScreenUtil().setHeight(15.0)),
+              LocationField(
+                  hint: 'Ankunftsort*',
+                  inputType: TextInputType.text,
+                  controller: location2,
+                  getlocation: _getLocation),
+              SizedBox(height: ScreenUtil().setHeight(15.0)),
+              DateTimeField(
+                  hint: 'Datum/Uhrzeit*',
+                  inputType: TextInputType.datetime,
+                  controller: date),
+              SizedBox(height: ScreenUtil().setHeight(28.0)),
+              Container(
+                height: ScreenUtil().setHeight(40.0),
+                child: ElevatedButton(
+                  child: Text('ANFRAGE ABSCHICKEN',
+                      style: TextStyle(
+                          fontFamily: 'medium',
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white.withOpacity(0.8))),
+                  style: ElevatedButton.styleFrom(
+                      elevation: 0.5, primary: Colors.teal.shade400),
+                  onPressed: () {},
+                ),
+              ),
+              SizedBox(
+                height: ScreenUtil().setHeight(20.0),
+              ),
+            ],
+          );
+        });
+  }
+
+  Widget _openSelectedPage() {
+    switch(_lastSelected) {
+      case 0:
+        return HomeView();
+      case 1:
+        return HomeView();
+      case 2:
+        return ContactScr();
+      case 3:
+        return ContactScr();
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,9 +134,10 @@ class _HomeScrState extends State<HomeScr> {
           title: Text(
             'Home',
             style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.white.withOpacity(0.8),
-                fontFamily: 'heavy',),
+              fontSize: 16.0,
+              color: Colors.white.withOpacity(0.8),
+              fontFamily: 'heavy',
+            ),
           ),
           actions: [
             GestureDetector(
@@ -76,152 +152,28 @@ class _HomeScrState extends State<HomeScr> {
             SizedBox(width: ScreenUtil().setWidth(22.0))
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                      height: ScreenUtil().setHeight(150),
-                      width: double.infinity,
-                      child: Image.asset(
-                                'assets/carimg.png',
-                                fit: BoxFit.fill,
-                              ),
-                  ),
-                  Container(
-                    height: ScreenUtil().setHeight(150),
-                    width: double.infinity,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          'Zuverlässiger Service',
-                          style: TextStyle(
-                              fontFamily: 'heavy',
-                              fontSize: 24.0,
-                              color: Colors.white.withOpacity(0.6)),
-                        ),
-                        SizedBox(
-                          height: ScreenUtil().setHeight(10.0),
-                        ),
-                        Container(
-                          height: ScreenUtil().setHeight(35.0),
-                          width: ScreenUtil().setWidth(265.0),
-                          child: ElevatedButton(
-                            child: Text('ANFRAGE ABSCHICKEN',
-                                style: TextStyle(
-                                    fontFamily: 'medium',
-                                    fontSize: 13.5,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white.withOpacity(0.8))),
-                            style: ElevatedButton.styleFrom(
-                                primary: Color(0xFF3DB1A2)),
-                            onPressed: () {},
-                          ),
-                        ),
-                        SizedBox(
-                          height: ScreenUtil().setHeight(20.0),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              Container(
-                height: ScreenUtil().setHeight(460),
-                width: double.infinity,
-                decoration: BoxDecoration(color: Colors.white, 
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.shade300,
-                      spreadRadius: 5.0,
-                      blurRadius: 15.0,
-                      offset: Offset(0.0, 3.0)
-                    )
-                  ]
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: ScreenUtil().setHeight(15),
-                    ),
-                    Text('Unsere Leistungen',
-                        style: TextStyle(
-                            fontFamily: 'medium',
-                            fontSize: 16.5,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black.withOpacity(0.51))),
-                    SizedBox(
-                      height: ScreenUtil().setHeight(20),
-                    ),
-                    Wrap(
-                      alignment: WrapAlignment.center,spacing: ScreenUtil().setWidth(30),runSpacing: ScreenUtil().setHeight(22),
-                      children: [
-                        serviceCard('assets/page-1 (1).png', 'Schüler Taxi'),
-                        serviceCard(
-                            'assets/page-1(2).png', 'Behinderte-ntransport'),
-                        serviceCard('assets/page-1(3).png', 'Concierge '),
-                        serviceCard('assets/page-1(4).png', 'Roadshows'),
-                        serviceCard('assets/page-1(5).png', 'Schüler Taxi'),
-                        serviceCard('assets/page-1(6).png', 'Reiseplanung')
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: ScreenUtil().setHeight(20.0),
-              ),
-              Text('Verbreitetes Netzwerk',
-                  style: TextStyle(
-                      fontFamily: 'medium',
-                      fontSize: 23,letterSpacing: 1.15,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF3DB1A2))),
-              SizedBox(
-                height: ScreenUtil().setHeight(3.0),
-              ),
-              Image.asset(
-                'assets/group-18.png',
-                fit: BoxFit.fitWidth,
-                width: double.infinity,
-                height: ScreenUtil().setHeight(145.0),
-              ),
-              SizedBox(
-                height: ScreenUtil().setHeight(20.0),
-              ),
-              Container(
-                padding: EdgeInsets.only(bottom: 150.0,left: 35.0,right: 35.0),
-                child: Text(
-                    'Wir verfügen über ein umfangreiches Netzwerk, das wir kontinuierlich ausbauen. Um unseren Kunden auch bei hoher Auslastung die richtige Servicelösung anbieten zu können, tun wir alles dafür.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontFamily: 'medium',
-                        fontSize: 13.5,
-                        fontWeight: FontWeight.w600,
-                        height: 1.5,
-                        color: Colors.black87)),
-              ),
-            ],
-          ),
+        body: _openSelectedPage(),
+        bottomNavigationBar: FABBottomAppBar(
+          height: ScreenUtil().setHeight(65.0),
+          items: appbaritems,
+          onTabSelected: _selectedTab,
+          iconSize: 24.0,
+          selectedColor: Theme.of(context).primaryColor,
+          notchedShape: CircularNotchedRectangle(),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   child: const Icon(Icons.add),
-        //   onPressed: () {},
-        // ),
-        // floatingActionButtonLocation:
-        //     FloatingActionButtonLocation.centerDocked,
-        // bottomNavigationBar: BottomAppBar(
-        //   elevation: 0.5,
-        //   shape: CircularNotchedRectangle(),
-        //   notchMargin: 4.0,
-        //   child: new Row(
-        //     mainAxisSize: MainAxisSize.max,
-        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //     children: <Widget>[],
-        //   ),
-        // )
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          onPressed: _bookNow,
+          backgroundColor: Theme.of(context).primaryColor,
+          tooltip: 'Calculator',
+          child: Image.asset(
+            'assets/calculator.png',
+            height: ScreenUtil().setHeight(22.0),
+            width: ScreenUtil().setWidth(22.0),
+            color: Colors.white.withOpacity(0.8),
+          ),
+          elevation: 1.0,
+        ),
       ),
     );
   }

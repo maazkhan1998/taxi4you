@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'screens/home.dart';
+import 'screens/contact.dart';
 import 'screens/onboarding.dart';
 import 'screens/ourfleet.dart';
 import 'screens/videos.dart';
@@ -21,10 +22,10 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       builder: () => MaterialApp(
-        title: 'Taxi For You',
+        title: 'Taxi4You',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Color(0xFF3DB1A2)),
-        home: OurFleetScr(),
+        home: OnBoardingScr(),
       ),
     ); 
   }
