@@ -1,8 +1,6 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:taxiforyou/screens/mapScreen.dart';
 import 'package:taxiforyou/widgets/customtextfield.dart';
 import 'package:taxiforyou/widgets/messagefield.dart';
 
@@ -12,21 +10,6 @@ class ContactScr extends StatefulWidget {
 }
 
 class _ContactScrState extends State<ContactScr> {
-  Position currentLocation;
-  Completer<GoogleMapController> _controller = Completer();
-
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
-  );
-
-  @override
-  initState() {
-    super.initState();
-    Geolocator.getCurrentPosition().then((currloc) {
-      currentLocation = currloc;
-    });
-  }
 
   contactItem(String image, String text) {
     return Row(
@@ -122,14 +105,7 @@ class _ContactScrState extends State<ContactScr> {
       child: Scaffold(
         body: Stack(
           children: [
-            GoogleMap(
-              zoomControlsEnabled: false,
-              mapType: MapType.normal,
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
-            ),
+            MapScreen(),
             Positioned(
               top: ScreenUtil().statusBarHeight,
               right: 30.0,

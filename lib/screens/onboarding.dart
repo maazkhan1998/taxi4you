@@ -163,15 +163,25 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                   Row(
                     children: _buildPageIndicatorStatic(),
                   ),
-                  Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(50.0)),
-                      height: ScreenUtil().setHeight(54.0),
-                      width: ScreenUtil().setWidth(85.0),
-                      child: Image.asset(
-                        'assets/arrow.png',
-                      ))
+                  GestureDetector(
+                    onTap: (){
+                      if(_currentPage<2)controller.nextPage(duration: Duration(milliseconds: 300),curve: Curves.easeInOut);
+                      else Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_)=>HomeScr()
+                        )
+                      );
+                    },
+                                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(50.0)),
+                        height: ScreenUtil().setHeight(54.0),
+                        width: ScreenUtil().setWidth(85.0),
+                        child: Image.asset(
+                          'assets/arrow.png',
+                        )),
+                  )
                 ],
               ),
             )

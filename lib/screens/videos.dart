@@ -26,7 +26,7 @@ class _VideosScrState extends State<VideosScr> {
               height: 16.0,
               width: 18.0,
             ),
-            onPressed: () {}),
+            onPressed: ()=>Navigator.of(context).pop()),
         title: Text(
           'Videos',
           style: TextStyle(

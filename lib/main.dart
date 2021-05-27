@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'screens/home.dart';
-import 'screens/contact.dart';
 import 'screens/onboarding.dart';
-import 'screens/ourfleet.dart';
-import 'screens/videos.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
