@@ -25,25 +25,12 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
   ];
 
   introPage(String img, String descr, int index) {
-    return AnimatedBuilder(
-      animation: controller,
-      builder: (context, child) {
-        double value = 1.0;
-        if (controller.position.haveDimensions) {
-          value = controller.page - index;
-          value = (1 - (value.abs() * 0.5)).clamp(0.0, 1);
-        }
-        return new SizedBox(
-          height: Curves.easeIn.transform(value) * ScreenUtil().setHeight(500),
-          child: child,
-        );
-      },
-      child: Column(
+    return  Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(img, height: MySize.getScaledSizeHeight(400)),
+          Image.asset(img,),
           SizedBox(
-            height: ScreenUtil().setHeight(20.0),
+            height: ScreenUtil().setHeight(10),
           ),
           Container(
               width: double.infinity,
@@ -55,14 +42,13 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                 style: TextStyle(
                   height: 1.6,
                   fontFamily: 'roman',
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withOpacity(0.8),
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.4,
                   fontSize: 14.0,
                 ),
               ))
         ],
-      ),
     );
   }
 
@@ -81,16 +67,16 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInToLinear,
             margin: EdgeInsets.symmetric(horizontal: 8.0),
-            height: ScreenUtil().setHeight(20.0),
-            width: ScreenUtil().setWidth(20.0),
+            height: ScreenUtil().setHeight(18),
+            width: ScreenUtil().setWidth(18),
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.transparent.withOpacity(0),
-                border: Border.all(color: Colors.white54, width: 2)),
+                border: Border.all(color: Colors.white38, width: 2)),
             child: Container(
-              height: ScreenUtil().setHeight(12.0),
-              width: ScreenUtil().setWidth(12.0),
+              height: ScreenUtil().setHeight(9),
+              width: ScreenUtil().setWidth(9),
               decoration:
                   BoxDecoration(color: Colors.white, shape: BoxShape.circle),
             ),
@@ -133,7 +119,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                         fontSize: 12.0),
                   )),
             ),
-            SizedBox(height: MySize.getScaledSizeHeight(80)),
+            SizedBox(height: MySize.getScaledSizeHeight(40)),
             Expanded(
                 child: PageView.builder(
               controller: controller,
