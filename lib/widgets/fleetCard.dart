@@ -17,7 +17,7 @@ class _FleetCardState extends State<FleetCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(205),
+      height: ScreenUtil().setHeight(250),
       margin: EdgeInsets.symmetric(vertical: ScreenUtil().setHeight(5), horizontal: ScreenUtil().setWidth(30)),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -33,7 +33,7 @@ class _FleetCardState extends State<FleetCard> {
         children: [
           Positioned(
             right: -128.0,
-            top: -10.0,
+            top: 0.0,
             child: Image.asset(widget.image),
           ),
           Container(
@@ -44,30 +44,33 @@ class _FleetCardState extends State<FleetCard> {
             Text(
               widget.carName,
               style: TextStyle(
-                  fontFamily: 'heavy',
-                  fontSize: 18.5,
-                  color: Colors.black.withOpacity(0.51)),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black.withOpacity(0.7)),
             ),
             Text(
               'HYBRID',
               style: TextStyle(
                   fontFamily: 'medium',
-                  fontSize: 10.5,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.black.withOpacity(0.31)),
+                  fontSize: 11,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey[300]),
             ),
-            SizedBox(height: ScreenUtil().setHeight(20.0)),
+            SizedBox(height: ScreenUtil().setHeight(40.0)),
             Container(
               width: ScreenUtil().setWidth(68),
               child: Text(
                 'Details Anzeigen',
                 style: TextStyle(
                   height: 1.3,
-                  color: Theme.of(context).primaryColor,
+                  color: Colors.teal.withOpacity(0.5),
                   fontSize: 14.0,
                   fontFamily: 'heavy',
                 ),
               ),
+            ),
+            Divider(
+              endIndent: MediaQuery.of(context).size.width*0.55,
             ),
             SizedBox(height: ScreenUtil().setHeight(20.0)),
             Row(
@@ -105,7 +108,7 @@ class _FleetCardState extends State<FleetCard> {
                       widget.capacity,
                       style: TextStyle(
                         height: 1.3,
-                        color: Colors.black.withOpacity(0.41),
+                        color: Colors.black.withOpacity(0.5),
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'heavy',
@@ -118,7 +121,7 @@ class _FleetCardState extends State<FleetCard> {
                         widget.luggage,
                         style: TextStyle(
                           height: 1.4,
-                          color: Colors.black.withOpacity(0.41),
+                          color: Colors.black.withOpacity(0.5),
                           fontSize: 14.0,
                           wordSpacing: 3,
                           fontWeight: FontWeight.bold,

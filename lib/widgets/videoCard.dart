@@ -15,8 +15,8 @@ class _VideoCardState extends State<VideoCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-                height: ScreenUtil().setHeight(185.0),
-                margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+                height: ScreenUtil().setHeight(210),
+                margin: EdgeInsets.symmetric(vertical: ScreenUtil().setHeight(15),horizontal: ScreenUtil().setWidth(20)),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -32,7 +32,7 @@ class _VideoCardState extends State<VideoCard> {
                 child: Column(
                   children: [
                     Container(
-                      height: ScreenUtil().setHeight(140),
+                      height: ScreenUtil().setHeight(165),
                       decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                           image: DecorationImage(
@@ -51,7 +51,6 @@ class _VideoCardState extends State<VideoCard> {
                               style: TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.black.withOpacity(0.5),
-                                fontFamily: 'heavy',
                               ),
                             ),
                             Align(

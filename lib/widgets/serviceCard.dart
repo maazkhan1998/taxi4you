@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taxiforyou/screens/videos.dart';
+import 'package:provider/provider.dart';
+import 'package:taxiforyou/provider/bottomBarProvider.dart';
 
 class ServiceCard extends StatefulWidget {
   final String image;
@@ -16,11 +17,9 @@ class _ServiceCardState extends State<ServiceCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (_)=>VideosScr()
-        )
-      ),
+      onTap: (){
+        Provider.of<BottomBarProvider>(context,listen:false).updatePageNo(4);
+      },
           child: Container(
         padding: EdgeInsets.symmetric(horizontal: 5),
         height: ScreenUtil().setHeight(112.0),

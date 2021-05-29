@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taxiforyou/utils/SizeConfig.dart';
 import 'package:taxiforyou/widgets/dialogs.dart';
@@ -16,6 +17,7 @@ class _HomeViewState extends State<HomeView> {
       appBar:  AppBar(
         automaticallyImplyLeading: false,
           titleSpacing: MySize.size34,
+          systemOverlayStyle: SystemUiOverlayStyle(statusBarColor:  Color(0xFF3DB1A2)),
           title: Text(
             'Home',
             style: TextStyle(
@@ -43,25 +45,33 @@ class _HomeViewState extends State<HomeView> {
                 Stack(
                   children: [
                     Container(
-                      height: ScreenUtil().setHeight(150),
+                      height: ScreenUtil().setHeight(200),
                       width: double.infinity,
                       child: Image.asset(
                         'assets/carimg.png',
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     Container(
-                      height: ScreenUtil().setHeight(150),
+                      height: ScreenUtil().setHeight(200),
                       width: double.infinity,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.black.withOpacity(0.7),
+                            Colors.black87.withOpacity(0.4)
+                          ]
+                        )
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             'Zuverlässiger Service',
                             style: TextStyle(
-                                fontFamily: 'heavy',
+                                fontWeight: FontWeight.w500,
                                 fontSize: 24.0,
-                                color: Colors.white.withOpacity(0.6)),
+                                color: Colors.white.withOpacity(0.8)),
                           ),
                           SizedBox(
                             height: ScreenUtil().setHeight(10.0),
@@ -92,12 +102,16 @@ class _HomeViewState extends State<HomeView> {
                 Container(
                   height: ScreenUtil().setHeight(460),
                   width: double.infinity,
-                  decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  decoration: BoxDecoration(color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(5),bottomRight: Radius.circular(5)
+                  ),
+                   boxShadow: [
                     BoxShadow(
-                        color: Colors.grey.shade300,
+                        color: Colors.grey.shade200,
                         spreadRadius: 5.0,
-                        blurRadius: 15.0,
-                        offset: Offset(0.0, 3.0))
+                        blurRadius: 5.0,
+                        offset: Offset(0.0, 0))
                   ]),
                   child: Column(
                     children: [
@@ -107,8 +121,8 @@ class _HomeViewState extends State<HomeView> {
                       Text('Unsere Leistungen',
                           style: TextStyle(
                               fontFamily: 'medium',
-                              fontSize: 16.5,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
                               color: Colors.black.withOpacity(0.51))),
                       SizedBox(
                         height: ScreenUtil().setHeight(20),
@@ -152,29 +166,27 @@ class _HomeViewState extends State<HomeView> {
                         fontWeight: FontWeight.w500,
                         color: Color(0xFF3DB1A2))),
                 SizedBox(
-                  height: ScreenUtil().setHeight(3.0),
+                  height: ScreenUtil().setHeight(10),
                 ),
                 Image.asset(
                   'assets/group-18.png',
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.cover,
                   width: double.infinity,
                   height: ScreenUtil().setHeight(145.0),
                 ),
-                SizedBox(
-                  height: ScreenUtil().setHeight(20.0),
-                ),
+                SizedBox(height: ScreenUtil().setHeight(5),),
                 Container(
                   padding:
-                      EdgeInsets.only(bottom: 150.0, left: 35.0, right: 35.0),
+                      EdgeInsets.only(bottom: ScreenUtil().setHeight(150), left: ScreenUtil().setWidth(35), right: ScreenUtil().setWidth(35)),
                   child: Text(
                       'Wir verfügen über ein umfangreiches Netzwerk, das wir kontinuierlich ausbauen. Um unseren Kunden auch bei hoher Auslastung die richtige Servicelösung anbieten zu können, tun wir alles dafür.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'medium',
-                          fontSize: 13.5,
+                          fontSize: 14,
                           fontWeight: FontWeight.w600,
                           height: 1.5,
-                          color: Colors.black87)),
+                          color: Colors.black54)),
                 ),
               ],
             ),

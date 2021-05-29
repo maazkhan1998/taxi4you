@@ -13,7 +13,7 @@ bookNow(BuildContext context) {
         builder: (context) {
           return SimpleDialog(
 
-            insetPadding: EdgeInsets.only(bottom:ScreenUtil().setHeight(140)),
+            insetPadding: EdgeInsets.only(bottom:ScreenUtil().setHeight(70)),
                 backgroundColor: Color(0xFFdedede),
                 elevation: 0.5,
                 shape: RoundedRectangleBorder(
@@ -23,34 +23,34 @@ bookNow(BuildContext context) {
                 titlePadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
                 title: Text('Jetzt Buchen',
             style: TextStyle(
-            fontFamily: 'medium',fontWeight: FontWeight.bold,letterSpacing: -0.5,
+            fontFamily: 'medium',letterSpacing: -0.5,
             fontSize: ScreenUtil().setSp(20.0),
-            color: Colors.black54)),
+            color: Colors.black87)),
                 children: [
-          SizedBox(height: ScreenUtil().setHeight(15)),
+          SizedBox(height: ScreenUtil().setHeight(28)),
           CustomTextField(
           hint: 'Name',
           inputType: TextInputType.text,
           controller: name),
-          SizedBox(height: ScreenUtil().setHeight(15.0)),
+          SizedBox(height: ScreenUtil().setHeight(28)),
           CustomTextField(
           hint: 'Phone',
           inputType: TextInputType.number,
           controller: number),
-          SizedBox(height: ScreenUtil().setHeight(15.0)),
+          SizedBox(height: ScreenUtil().setHeight(28)),
           CustomTextField(
           hint: 'Email',
           inputType: TextInputType.emailAddress,
           controller: email),
-          SizedBox(height: ScreenUtil().setHeight(15.0)),
+          SizedBox(height: ScreenUtil().setHeight(28)),
           LocationContainer(
             text:'Abholort*'
           ),
-          SizedBox(height: ScreenUtil().setHeight(15.0)),
+          SizedBox(height: ScreenUtil().setHeight(28)),
           LocationContainer(
             text:'Ankunftsort*'
           ),
-          SizedBox(height: ScreenUtil().setHeight(15.0)),
+          SizedBox(height: ScreenUtil().setHeight(28)),
           Container(
             padding: EdgeInsets.symmetric(horizontal:12),
             width: ScreenUtil().setWidth(283),
@@ -78,7 +78,7 @@ bookNow(BuildContext context) {
           ],
             ),
           ),
-          SizedBox(height: ScreenUtil().setHeight(28.0)),
+          SizedBox(height: ScreenUtil().setHeight(30)),
           Container(
             height: ScreenUtil().setHeight(40.0),
             child: ElevatedButton(
@@ -94,7 +94,7 @@ bookNow(BuildContext context) {
             ),
           ),
           SizedBox(
-            height: ScreenUtil().setHeight(20.0),
+            height: ScreenUtil().setHeight(23),
           ),
                 ],
               );
