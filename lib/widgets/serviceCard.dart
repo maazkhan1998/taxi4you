@@ -34,7 +34,7 @@ class _ServiceCardState extends State<ServiceCard> {
             Align(
               alignment: Alignment.topRight,
               child: Container(
-                margin: EdgeInsets.only(top: 4.0),
+                margin: EdgeInsets.only(top: ScreenUtil().setHeight(4.0)),
                 child: Image.asset(
                   'assets/play.png',
                   height: ScreenUtil().setHeight(20),

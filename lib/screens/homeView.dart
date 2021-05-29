@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
           title: Text(
             'Home',
             style: TextStyle(
-              fontSize: 16.0,
+              fontSize: ScreenUtil().setSp(16.0),
               color: Colors.white.withOpacity(0.8),
               fontFamily: 'heavy',
             ),
@@ -31,8 +31,8 @@ class _HomeViewState extends State<HomeView> {
               onTap: ()=>bookNow(context),
               child: Image.asset(
                 'assets/search.png',
-                height: 16.0,
-                width: 18.0,
+                height: ScreenUtil().setHeight(16.0),
+                width: ScreenUtil().setWidth(18.0),
                 color: Colors.white,
               ),
             ),
@@ -70,7 +70,7 @@ class _HomeViewState extends State<HomeView> {
                             'Zuverlässiger Service',
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                fontSize: 24.0,
+                                fontSize: ScreenUtil().setSp(24.0),
                                 color: Colors.white.withOpacity(0.8)),
                           ),
                           SizedBox(
@@ -83,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
                               child: Text('ANFRAGE ABSCHICKEN',
                                   style: TextStyle(
                                       fontFamily: 'medium',
-                                      fontSize: 13.5,
+                                      fontSize: ScreenUtil().setSp(13.5),
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white.withOpacity(0.8))),
                               style: ElevatedButton.styleFrom(
@@ -121,16 +121,16 @@ class _HomeViewState extends State<HomeView> {
                       Text('Unsere Leistungen',
                           style: TextStyle(
                               fontFamily: 'medium',
-                              fontSize: 18,
+                              fontSize: ScreenUtil().setSp(18.0),
                               fontWeight: FontWeight.w500,
                               color: Colors.black.withOpacity(0.51))),
                       SizedBox(
-                        height: ScreenUtil().setHeight(20),
+                        height: ScreenUtil().setHeight(20.0),
                       ),
                       Wrap(
                         alignment: WrapAlignment.center,
-                        spacing: ScreenUtil().setWidth(30),
-                        runSpacing: ScreenUtil().setHeight(22),
+                        spacing: ScreenUtil().setWidth(30.0),
+                        runSpacing: ScreenUtil().setHeight(22.0),
                         children: [
                           ServiceCard(
                               image: 'assets/page-1 (1).png',
@@ -161,7 +161,7 @@ class _HomeViewState extends State<HomeView> {
                 Text('Verbreitetes Netzwerk',
                     style: TextStyle(
                         fontFamily: 'medium',
-                        fontSize: 23,
+                        fontSize: ScreenUtil().setSp(23.0),
                         letterSpacing: 1.15,
                         fontWeight: FontWeight.w500,
                         color: Color(0xFF3DB1A2))),
@@ -177,13 +177,13 @@ class _HomeViewState extends State<HomeView> {
                 SizedBox(height: ScreenUtil().setHeight(5),),
                 Container(
                   padding:
-                      EdgeInsets.only(bottom: ScreenUtil().setHeight(150), left: ScreenUtil().setWidth(35), right: ScreenUtil().setWidth(35)),
+                      EdgeInsets.only(bottom: ScreenUtil().setHeight(150), left: ScreenUtil().setWidth(35.0), right: ScreenUtil().setWidth(35.5)),
                   child: Text(
                       'Wir verfügen über ein umfangreiches Netzwerk, das wir kontinuierlich ausbauen. Um unseren Kunden auch bei hoher Auslastung die richtige Servicelösung anbieten zu können, tun wir alles dafür.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'medium',
-                          fontSize: 14,
+                          fontSize: ScreenUtil().setSp(14.0),
                           fontWeight: FontWeight.w600,
                           height: 1.5,
                           color: Colors.black54)),

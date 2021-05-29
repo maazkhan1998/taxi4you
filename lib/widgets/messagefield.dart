@@ -23,7 +23,7 @@ class _MessageFieldState extends State<MessageField> {
         keyboardType: widget.inputType,
         maxLines: 7,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 12,top: 20.0),
+          contentPadding: EdgeInsets.only(left: ScreenUtil().setWidth(12.0),top: ScreenUtil().setHeight(20.0)),
           hintText: widget.hint,
           hintStyle: TextStyle(fontFamily: 'medium',fontSize: ScreenUtil().setSp(14.0),color: Color(0xFF888888)),
           border: OutlineInputBorder(

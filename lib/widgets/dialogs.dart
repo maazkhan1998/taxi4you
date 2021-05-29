@@ -19,8 +19,8 @@ bookNow(BuildContext context) {
                 shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)),
                 contentPadding:
-            EdgeInsets.symmetric(vertical: 3.0, horizontal: 12.0),
-                titlePadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+            EdgeInsets.symmetric(vertical: ScreenUtil().setHeight(3.0), horizontal: ScreenUtil().setWidth(12.0)),
+                titlePadding: EdgeInsets.symmetric(vertical: ScreenUtil().setHeight(15.0), horizontal: ScreenUtil().setWidth(12.0)),
                 title: Text('Jetzt Buchen',
             style: TextStyle(
             fontFamily: 'medium',letterSpacing: -0.5,
@@ -94,7 +94,7 @@ bookNow(BuildContext context) {
             ),
           ),
           SizedBox(
-            height: ScreenUtil().setHeight(23),
+            height: ScreenUtil().setHeight(15),
           ),
                 ],
               );

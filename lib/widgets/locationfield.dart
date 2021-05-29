@@ -26,12 +26,12 @@ class _LocationFieldState extends State<LocationField> {
         controller: widget.controller,
         keyboardType: widget.inputType,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 12),
+          contentPadding: EdgeInsets.only(left: ScreenUtil().setWidth(12.0)),
           suffixIcon: GestureDetector(
             onTap: widget.getlocation,
               child: Image.asset(
             'assets/location.png',
-            height: 10.0,width: 10.0,
+            height: ScreenUtil().setHeight(10.0),width: ScreenUtil().setWidth(10.0),
           )),
           hintText: widget.hint,
           hintStyle: TextStyle(

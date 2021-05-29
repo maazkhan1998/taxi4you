@@ -74,15 +74,15 @@ class _HomeScrState extends State<HomeScr> {
               Icon(
                 Icons.phone,color: Colors.black
               ),
-              SizedBox(height: 4),
+              SizedBox(height: ScreenUtil().setHeight(4.0)),
               Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: ScreenUtil().setWidth(8.0)),
                 child: Text(
                   titles[index],
                   maxLines: 1,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 12),
+                      fontSize: ScreenUtil().setSp(12.0)),
                 ),
               )
             ],

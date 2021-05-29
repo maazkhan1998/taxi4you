@@ -20,14 +20,14 @@ class _OurFleetScrState extends State<OurFleetScr> {
     leading: IconButton(
         icon: Image.asset(
           'assets/arrow back.png',
-          height: 16.0,
-          width: 18.0,
+          height: ScreenUtil().setHeight(16.0),
+          width: ScreenUtil().setWidth(18.0),
         ),
         onPressed: () {}),
     title: Text(
       'Unsere Flotte',
       style: TextStyle(
-        fontSize: 16.0,
+        fontSize: ScreenUtil().setSp(16.0),
         color: Colors.white.withOpacity(0.8),
         fontFamily: 'heavy',
       ),
@@ -37,8 +37,8 @@ class _OurFleetScrState extends State<OurFleetScr> {
         onTap: ()=>bookNow(context),
         child: Image.asset(
           'assets/search.png',
-          height: 16.0,
-          width: 18.0,
+          height: ScreenUtil().setHeight(16.0),
+          width: ScreenUtil().setWidth(18.0),
           color: Colors.white,
         ),
       ),
@@ -46,7 +46,7 @@ class _OurFleetScrState extends State<OurFleetScr> {
     ],
       ),
       body: SingleChildScrollView(
-    padding: EdgeInsets.symmetric(vertical:20),
+    padding: EdgeInsets.symmetric(vertical:ScreenUtil().setWidth(20.0)),
     child:Column( 
       children:[
         ListView.separated(

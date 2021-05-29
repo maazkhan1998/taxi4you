@@ -44,7 +44,7 @@ class _FleetCardState extends State<FleetCard> {
             Text(
               widget.carName,
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: ScreenUtil().setSp(20.0),
                   fontWeight: FontWeight.w400,
                   color: Colors.black.withOpacity(0.7)),
             ),
@@ -84,7 +84,7 @@ class _FleetCardState extends State<FleetCard> {
                       style: TextStyle(
                         height: 1.25,
                         color: Colors.black.withOpacity(0.51),
-                        fontSize: 15.0,
+                        fontSize: ScreenUtil().setSp(15.0),
                         fontFamily: 'heavy',
                       ),
                     ),
@@ -94,7 +94,7 @@ class _FleetCardState extends State<FleetCard> {
                       style: TextStyle(
                         height: 1.25,
                         color: Colors.black.withOpacity(0.51),
-                        fontSize: 15.0,
+                        fontSize: ScreenUtil().setSp(15.0),
                         fontFamily: 'heavy',
                       ),
                     )
@@ -109,7 +109,7 @@ class _FleetCardState extends State<FleetCard> {
                       style: TextStyle(
                         height: 1.3,
                         color: Colors.black.withOpacity(0.5),
-                        fontSize: 14.0,
+                        fontSize: ScreenUtil().setSp(15.0),
                         fontWeight: FontWeight.bold,
                         fontFamily: 'heavy',
                       ),
@@ -122,7 +122,7 @@ class _FleetCardState extends State<FleetCard> {
                         style: TextStyle(
                           height: 1.4,
                           color: Colors.black.withOpacity(0.5),
-                          fontSize: 14.0,
+                          fontSize: ScreenUtil().setSp(14.0),
                           wordSpacing: 3,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'heavy',

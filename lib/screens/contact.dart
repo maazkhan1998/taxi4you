@@ -145,8 +145,8 @@ class _ContactScrState extends State<ContactScr> {
             child: Container(
               height: ScreenUtil().setHeight(350.0),
               width: ScreenUtil().screenWidth - 40,
-              margin: EdgeInsets.symmetric(horizontal: 20.0),
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+              margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20.0)),
+              padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20.0), vertical: ScreenUtil().setHeight(15.0)),
               decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -160,7 +160,6 @@ class _ContactScrState extends State<ContactScr> {
                 children: [
                   Text('Kontakt',
                       style: TextStyle(
-                          
                           letterSpacing: -0.5,
                           fontSize: ScreenUtil().setSp(20.0),
                           color: Colors.black.withOpacity(0.7))),

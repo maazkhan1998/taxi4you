@@ -41,7 +41,7 @@ class _VideoCardState extends State<VideoCard> {
                     ),
                     Expanded(
                       child: Container(
-                        padding: const EdgeInsets.only(left: 12.0,right: 8.0,bottom: 3.0),
+                        padding: EdgeInsets.only(left: ScreenUtil().setWidth(12.0),right: ScreenUtil().setWidth(8.0),bottom: ScreenUtil().setHeight(3.0)),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,18 +49,18 @@ class _VideoCardState extends State<VideoCard> {
                             Text(
                               widget.title,
                               style: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: ScreenUtil().setSp(18.0),
                                 color: Colors.black.withOpacity(0.5),
                               ),
                             ),
                             Align(
                               alignment: Alignment.centerRight,
                               child: Container(
-                                margin: EdgeInsets.only(top: 4.0),
+                                margin: EdgeInsets.only(top: ScreenUtil().setHeight(4.0)),
                                 child: Image.asset(
                                   'assets/play.png',
-                                  height: 26.0,
-                                  width: 26.0,
+                                  height: ScreenUtil().setHeight(26.0),
+                                  width: ScreenUtil().setWidth(26.0),
                                   fit: BoxFit.cover,
                                 ),
                               ),

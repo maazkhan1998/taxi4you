@@ -24,14 +24,14 @@ class _VideosScrState extends State<VideosScr> {
     leading: IconButton(
         icon: Image.asset(
           'assets/arrow back.png',
-          height: 16.0,
-          width: 18.0,
+          height: ScreenUtil().setHeight(16.0),
+          width: ScreenUtil().setWidth(18.0),
         ),
         onPressed: ()=>Navigator.of(context).pop()),
     title: Text(
       'Videos',
       style: TextStyle(
-        fontSize: 16.0,
+        fontSize: ScreenUtil().setSp(16.0),
         color: Colors.white.withOpacity(0.8),
         fontFamily: 'heavy',
       ),
@@ -41,8 +41,8 @@ class _VideosScrState extends State<VideosScr> {
         onTap: () {},
         child: Image.asset(
           'assets/search.png',
-          height: 16.0,
-          width: 18.0,
+          height: ScreenUtil().setHeight(16.0),
+          width: ScreenUtil().setWidth(18.0),
           color: Colors.white,
         ),
       ),
@@ -51,7 +51,7 @@ class _VideosScrState extends State<VideosScr> {
       ),
       body: Container(
     height: ScreenUtil().screenHeight,
-    padding: EdgeInsets.symmetric(vertical:ScreenUtil().setHeight(15)),
+    padding: EdgeInsets.symmetric(vertical:ScreenUtil().setHeight(15.0)),
     width: double.infinity,
     child: ListView.separated(
       padding: EdgeInsets.symmetric(horizontal:ScreenUtil().setWidth(12.5)),

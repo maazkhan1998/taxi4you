@@ -22,7 +22,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         keyboardType: widget.inputType,
         maxLines: 1,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 12),
+          contentPadding: EdgeInsets.only(left: ScreenUtil().setWidth(12.0)),
           hintText: widget.hint,
           hintStyle: TextStyle(fontFamily: 'medium',fontSize: ScreenUtil().setSp(14.0),color: Color(0xFF888888)),
           border: OutlineInputBorder(

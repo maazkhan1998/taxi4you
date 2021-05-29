@@ -28,7 +28,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
     return  Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(img,),
+          Expanded(child: Image.asset(img,)),
           SizedBox(
             height: ScreenUtil().setHeight(10),
           ),
@@ -109,14 +109,14 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                       builder: (BuildContext context) => HomeScr())),
               child: Container(
                   width: double.infinity,
-                  margin: EdgeInsets.only(right: 34.0, top: 20.0),
+                  margin: EdgeInsets.only(right: ScreenUtil().setWidth(34.0), top: ScreenUtil().setHeight(34.0)),
                   child: Text(
                     'SKIP',
                     textAlign: TextAlign.right,
                     style: TextStyle(
                         fontFamily: 'medium',
                         color: Colors.white.withOpacity(0.7),
-                        fontSize: 12.0),
+                        fontSize: ScreenUtil().setHeight(12.0)),
                   )),
             ),
             SizedBox(height: MySize.getScaledSizeHeight(40)),
