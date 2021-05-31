@@ -45,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
                 Stack(
                   children: [
                     Container(
-                      height: ScreenUtil().setHeight(200),
+                      height: ScreenUtil().setHeight(225),
                       width: double.infinity,
                       child: Image.asset(
                         'assets/carimg.png',
@@ -53,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     Container(
-                      height: ScreenUtil().setHeight(200),
+                      height: ScreenUtil().setHeight(225),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -77,8 +77,8 @@ class _HomeViewState extends State<HomeView> {
                             height: ScreenUtil().setHeight(10.0),
                           ),
                           Container(
-                            height: ScreenUtil().setHeight(35.0),
-                            width: ScreenUtil().setWidth(265.0),
+                            height: ScreenUtil().setHeight(40.0),
+                            width: ScreenUtil().setWidth(300),
                             child: ElevatedButton(
                               child: Text('ANFRAGE ABSCHICKEN',
                                   style: TextStyle(
@@ -92,7 +92,7 @@ class _HomeViewState extends State<HomeView> {
                             ),
                           ),
                           SizedBox(
-                            height: ScreenUtil().setHeight(20.0),
+                            height: ScreenUtil().setHeight(25.0),
                           ),
                         ],
                       ),
@@ -111,7 +111,7 @@ class _HomeViewState extends State<HomeView> {
                         color: Colors.grey.shade200,
                         spreadRadius: 5.0,
                         blurRadius: 5.0,
-                        offset: Offset(0.0, 0))
+                        offset: Offset(0, ScreenUtil().setHeight(7)))
                   ]),
                   child: Column(
                     children: [
@@ -174,7 +174,7 @@ class _HomeViewState extends State<HomeView> {
                   width: double.infinity,
                   height: ScreenUtil().setHeight(145.0),
                 ),
-                SizedBox(height: ScreenUtil().setHeight(5),),
+                SizedBox(height: ScreenUtil().setHeight(15),),
                 Container(
                   padding:
                       EdgeInsets.only(bottom: ScreenUtil().setHeight(150), left: ScreenUtil().setWidth(35.0), right: ScreenUtil().setWidth(35.5)),

@@ -36,6 +36,7 @@ dependencies:
   animated_bottom_navigation_bar: ^0.3.2
   auto_size_text: ^2.1.0
   provider: ^5.0.0
+  scroll_snap_list: ^0.8.1
 
 dev_dependencies:
   flutter_test:

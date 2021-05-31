@@ -17,7 +17,7 @@ class _FleetCardState extends State<FleetCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(250),
+      height: ScreenUtil().setHeight(270),
       margin: EdgeInsets.symmetric(vertical: ScreenUtil().setHeight(5), horizontal: ScreenUtil().setWidth(30)),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -46,7 +46,7 @@ class _FleetCardState extends State<FleetCard> {
               style: TextStyle(
                   fontSize: ScreenUtil().setSp(20.0),
                   fontWeight: FontWeight.w400,
-                  color: Colors.black.withOpacity(0.7)),
+                  color: Color.fromRGBO(51, 51, 51, 1)),
             ),
             Text(
               'HYBRID',

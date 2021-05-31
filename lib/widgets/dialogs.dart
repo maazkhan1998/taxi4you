@@ -13,7 +13,7 @@ bookNow(BuildContext context) {
         builder: (context) {
           return SimpleDialog(
 
-            insetPadding: EdgeInsets.only(bottom:ScreenUtil().setHeight(70)),
+            insetPadding: EdgeInsets.only(bottom:ScreenUtil().setHeight(75)),
                 backgroundColor: Color(0xFFdedede),
                 elevation: 0.5,
                 shape: RoundedRectangleBorder(
@@ -24,8 +24,8 @@ bookNow(BuildContext context) {
                 title: Text('Jetzt Buchen',
             style: TextStyle(
             fontFamily: 'medium',letterSpacing: -0.5,
-            fontSize: ScreenUtil().setSp(20.0),
-            color: Colors.black87)),
+            fontSize: ScreenUtil().setSp(22.0),
+            color: Color.fromRGBO(51, 51, 51, 1))),
                 children: [
           SizedBox(height: ScreenUtil().setHeight(28)),
           CustomTextField(
@@ -94,7 +94,7 @@ bookNow(BuildContext context) {
             ),
           ),
           SizedBox(
-            height: ScreenUtil().setHeight(15),
+            height: ScreenUtil().setHeight(50),
           ),
                 ],
               );

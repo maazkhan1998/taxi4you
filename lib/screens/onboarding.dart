@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:taxiforyou/screens/home.dart';
 import 'package:taxiforyou/utils/SizeConfig.dart';
 
@@ -11,8 +12,7 @@ class OnBoardingScr extends StatefulWidget {
 }
 
 class _OnBoardingScrState extends State<OnBoardingScr> {
-  PageController controller =
-      PageController(initialPage: 0, viewportFraction: 0.8);
+  ScrollController controller;
 
   Widget renderNextBtn() {
     return Image.asset('assets/arrow.png');
@@ -24,32 +24,14 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
     'assets/Phone Right.png'
   ];
 
+  List<String> descList=[
+    'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei',
+    'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei',
+    'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei'
+  ];
+
   introPage(String img, String descr, int index) {
-    return  Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(child: Image.asset(img,)),
-          SizedBox(
-            height: ScreenUtil().setHeight(10),
-          ),
-          Container(
-              width: double.infinity,
-              padding:
-                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(10)),
-              child: Text(
-                descr,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  height: 1.6,
-                  fontFamily: 'roman',
-                  color: Colors.white.withOpacity(0.8),
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 0.4,
-                  fontSize: 14.0,
-                ),
-              ))
-        ],
-    );
+    return Center(child: Image.asset(img,)); 
   }
 
   int _currentPage = 0;
@@ -60,6 +42,13 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
     }
     return list;
   }
+
+  initState(){
+    controller=ScrollController();
+    super.initState();
+  }
+
+  double position=0;
 
   Widget _indicator(bool isActive) {
     return isActive
@@ -97,82 +86,117 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
   @override
   Widget build(BuildContext context) {
     MySize().init(context);
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.teal[500].withOpacity(1),
-        body: Column(
-          children: [
-            GestureDetector(
-              onTap: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => HomeScr())),
-              child: Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.only(right: ScreenUtil().setWidth(34.0), top: ScreenUtil().setHeight(34.0)),
-                  child: Text(
-                    'SKIP',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        fontFamily: 'medium',
-                        color: Colors.white.withOpacity(0.7),
-                        fontSize: ScreenUtil().setHeight(12.0)),
-                  )),
-            ),
-            SizedBox(height: MySize.getScaledSizeHeight(40)),
-            Expanded(
-                child: PageView.builder(
-              controller: controller,
-              itemCount: 3,
-              onPageChanged: (int page) {
-                setState(() {
-                  _currentPage = page;
-                });
-              },
+    return Scaffold(
+      backgroundColor: Colors.teal[500].withOpacity(1),
+      body: Column(
+        children: [
+          GestureDetector(
+            onTap: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => HomeScr())),
+            child: Container(
+                width: double.infinity,
+                margin: EdgeInsets.only(right: ScreenUtil().setWidth(34.0), top: ScreenUtil().setHeight(34.0)),
+                child: Text(
+                  'SKIP',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                      fontFamily: 'medium',
+                      color: Colors.white.withOpacity(0.7),
+                      fontSize: ScreenUtil().setHeight(12.0)),
+                )),
+          ),
+          Expanded(
+            child: ScrollSnapList(
+              listController: controller,
               scrollDirection: Axis.horizontal,
-              physics: ClampingScrollPhysics(),
-              itemBuilder: (context, i) => introPage(
-                  assetList[i],
-                  'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei',
-                  i),
-            )),
-            Container(
-              margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(20)),
-              padding:
-                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
-              height: ScreenUtil().setHeight(80.0),
-              width: double.infinity,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: _buildPageIndicatorStatic(),
+              updateOnScroll: true,
+              itemBuilder: (context,i)=>introPage(assetList[i], 'descr', i),
+              onItemFocus: (i){
+                if(i<_currentPage)position-=200;
+                setState(()=>_currentPage=i);
+                },
+              itemCount: assetList.length,
+              itemSize: ScreenUtil().setWidth(240),
+              padding: EdgeInsets.all(0),
+              duration: 300,
+              curve: Curves.easeInOut,
+              margin: EdgeInsets.all(0),
+            ),
+          ),
+          // Expanded(
+          //     child: PageView.builder(
+          //   controller: controller,
+          //   itemCount: 3,
+          //   onPageChanged: (int page) {
+          //     setState(() {
+          //       _currentPage = page;
+          //     });
+          //   },
+          //   scrollDirection: Axis.horizontal,
+          //   physics: ClampingScrollPhysics(),
+          //   itemBuilder: (context, i) => introPage(
+          //       assetList[i],
+          //       'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei',
+          //       i),
+          // )),
+          AnimatedContainer(
+            duration: Duration(milliseconds: 300),
+                width: double.infinity,
+                padding:
+                    EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
+                child: Text(
+                  descList[_currentPage],
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    height: 1.6,
+                    fontFamily: 'roman',
+                    color: Colors.white.withOpacity(0.8),
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 0.4,
+                    fontSize: 14.0,
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      if(_currentPage<2)controller.nextPage(duration: Duration(milliseconds: 300),curve: Curves.easeInOut);
-                      else Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_)=>HomeScr()
-                        )
-                      );
-                    },
-                                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(50.0)),
-                        height: ScreenUtil().setHeight(54.0),
-                        width: ScreenUtil().setWidth(85.0),
-                        child: Image.asset(
-                          'assets/arrow.png',
-                        )),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+                )),
+          Container(
+            margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(20)),
+            padding:
+                EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
+            height: ScreenUtil().setHeight(80.0),
+            width: double.infinity,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: _buildPageIndicatorStatic(),
+                ),
+                GestureDetector(
+                  onTap: (){
+                    if(_currentPage<2){
+                      position+=200;
+                      controller.jumpTo(position);
+                    }
+                    else Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_)=>HomeScr()
+                      )
+                    );
+                  },
+                                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(50.0)),
+                      height: ScreenUtil().setHeight(54.0),
+                      width: ScreenUtil().setWidth(85.0),
+                      child: Image.asset(
+                        'assets/arrow.png',
+                      )),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

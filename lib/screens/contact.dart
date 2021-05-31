@@ -25,7 +25,7 @@ class _ContactScrState extends State<ContactScr> {
               style: TextStyle(
                   fontFamily: 'medium',
                   letterSpacing: -0.5,
-                  fontSize: ScreenUtil().setSp(16.0),
+                  fontSize: ScreenUtil().setSp(20.0),
                   color: Colors.black45)),
         )
       ],
@@ -58,8 +58,8 @@ class _ContactScrState extends State<ContactScr> {
                   Text('Write Us',
                 style: TextStyle(
                     fontFamily: 'medium',fontWeight: FontWeight.w500,letterSpacing: -0.5,
-                    fontSize: ScreenUtil().setSp(18.0),
-                    color: Colors.black)),
+                    fontSize: ScreenUtil().setSp(22.0),
+                    color: Color.fromRGBO(51, 51, 51, 1))),
                 GestureDetector(
                   onTap: ()=>Navigator.of(context).pop(),
                   child: Icon(Icons.close,size:18,color:Colors.grey[700]))
@@ -126,13 +126,13 @@ class _ContactScrState extends State<ContactScr> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(
-                'assets/search.png',
+                'assets/arrow back.png',
                 height: 16.0,
                 width: 18.0,
                 color: Colors.black,
               ),
               Image.asset(
-                  'assets/arrow back.png',
+                  'assets/search.png',
                   height: 16.0,
                   width: 18.0,
                   color: Colors.black,
