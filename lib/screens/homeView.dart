@@ -48,7 +48,7 @@ class _HomeViewState extends State<HomeView> {
                       height: ScreenUtil().setHeight(225),
                       width: double.infinity,
                       child: Image.asset(
-                        'assets/carimg.png',
+                        'assets/carimg@3x.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -133,19 +133,19 @@ class _HomeViewState extends State<HomeView> {
                         runSpacing: ScreenUtil().setHeight(22.0),
                         children: [
                           ServiceCard(
-                              image: 'assets/page-1 (1).png',
+                              image: 'assets/page-1@3x (1).png',
                               service: 'Schüler Taxi'),
                           ServiceCard(
-                              image: 'assets/page-1(2).png',
+                              image: 'assets/page-1@3x(2).png',
                               service: 'Behinderte-ntransport'),
                           ServiceCard(
-                              image: 'assets/page-1(3).png',
+                              image: 'assets/page-1@3x(3).png',
                               service: 'Concierge '),
                           ServiceCard(
-                              image: 'assets/page-1(4).png',
+                              image: 'assets/page-1@3x(4).png',
                               service: 'Roadshows'),
                           ServiceCard(
-                              image: 'assets/page-1(5).png',
+                              image: 'assets/page-1@3x(5).png',
                               service: 'Schüler Taxi'),
                           ServiceCard(
                               image: 'assets/page-1(6).png',
@@ -169,7 +169,7 @@ class _HomeViewState extends State<HomeView> {
                   height: ScreenUtil().setHeight(10),
                 ),
                 Image.asset(
-                  'assets/group-18.png',
+                  'assets/group-18@3x.png',
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: ScreenUtil().setHeight(145.0),

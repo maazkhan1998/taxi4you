@@ -16,7 +16,7 @@ class HomeScr extends StatefulWidget {
 
 class _HomeScrState extends State<HomeScr> {
   List<String> icons = [
-    'assets/outlined-ui-home@2x.png',
+    'assets/outlined-ui-home@3x.png',
     'assets/clipboard@3x.png',
     'assets/date@3x.png',
     'assets/account@3x.png'
@@ -104,7 +104,7 @@ class _HomeScrState extends State<HomeScr> {
         backgroundColor: Theme.of(context).primaryColor,
         tooltip: 'Calculator',
         child: Image.asset(
-          'assets/calculator.png',
+          'assets/calculator@3x.png',
           height: ScreenUtil().setHeight(22.0),
           width: ScreenUtil().setWidth(22.0),
           color: Colors.white,

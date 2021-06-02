@@ -34,7 +34,9 @@ class _FleetCardState extends State<FleetCard> {
           Positioned(
             right: -128.0,
             top: 0.0,
-            child: Image.asset(widget.image),
+            child: Container(
+              height: 180,width: 380,
+              child: Image.asset(widget.image)),
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20), vertical: ScreenUtil().setHeight(12)),

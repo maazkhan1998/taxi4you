@@ -19,9 +19,9 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
   }
 
   List<String> assetList = [
-    'assets/Phone Left.png',
-    'assets/Phone Medium.png',
-    'assets/Phone Right.png'
+    'assets/Phone Left@3x.png',
+    'assets/Phone Medium@3x.png',
+    'assets/Phone Right@3x.png'
   ];
 
   List<String> descList=[
@@ -31,7 +31,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
   ];
 
   introPage(String img, String descr, int index) {
-    return Center(child: Image.asset(img,)); 
+    return Center(child: Image.asset(img)); 
   }
 
   int _currentPage = 0;
@@ -44,7 +44,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
   }
 
   initState(){
-    controller=ScrollController();
+    controller = ScrollController();
     super.initState();
   }
 

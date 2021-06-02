@@ -36,7 +36,7 @@ class _OurFleetScrState extends State<OurFleetScr> {
       GestureDetector(
         onTap: ()=>bookNow(context),
         child: Image.asset(
-          'assets/search.png',
+          'assets/search@3x.png',
           height: ScreenUtil().setHeight(16.0),
           width: ScreenUtil().setWidth(18.0),
           color: Colors.white,
@@ -55,7 +55,7 @@ class _OurFleetScrState extends State<OurFleetScr> {
         separatorBuilder: (BuildContext context, int index) =>
             SizedBox(height: ScreenUtil().setHeight(5)),
         itemBuilder: (BuildContext context, int index) {
-          return FleetCard(carName: 'Mercedes S-Klasse',image: 'assets/blackcar.png',capacity: '3 Passagiere',luggage: '2 Passagiere Inklusive Wasser (33 cl) Zuschlag 20.-*');
+          return FleetCard(carName: 'Mercedes S-Klasse',image: 'assets/blackcar@3x.png',capacity: '3 Passagiere',luggage: '2 Passagiere Inklusive Wasser (33 cl) Zuschlag 20.-*');
         },
         itemCount: 3),
       ]
