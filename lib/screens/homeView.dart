@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:taxiforyou/provider/bottomBarProvider.dart';
 import 'package:taxiforyou/utils/SizeConfig.dart';
 import 'package:taxiforyou/widgets/dialogs.dart';
 import 'package:taxiforyou/widgets/serviceCard.dart';
@@ -17,12 +19,23 @@ class _HomeViewState extends State<HomeView> {
       appBar:  AppBar(
         automaticallyImplyLeading: false,
           titleSpacing: MySize.size34,
+          toolbarHeight: ScreenUtil().setHeight(65.0),
           systemOverlayStyle: SystemUiOverlayStyle(statusBarColor:  Color(0xFF3DB1A2)),
+          flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF4AA599), Color(0xFF3DB1A2)],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              stops: [0.5, 1.0],
+            ),
+          ),
+        ),
           title: Text(
             'Home',
             style: TextStyle(
-              fontSize: ScreenUtil().setSp(16.0),
-              color: Colors.white.withOpacity(0.8),
+              fontSize: ScreenUtil().setSp(20.0),
+              color: Colors.white,
               fontFamily: 'heavy',
             ),
           ),
@@ -45,7 +58,7 @@ class _HomeViewState extends State<HomeView> {
                 Stack(
                   children: [
                     Container(
-                      height: ScreenUtil().setHeight(225),
+                      height: ScreenUtil().setHeight(205.5),
                       width: double.infinity,
                       child: Image.asset(
                         'assets/carimg@3x.png',
@@ -53,7 +66,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     Container(
-                      height: ScreenUtil().setHeight(225),
+                      height: ScreenUtil().setHeight(205.5),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -70,8 +83,8 @@ class _HomeViewState extends State<HomeView> {
                             'Zuverlässiger Service',
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                fontSize: ScreenUtil().setSp(24.0),
-                                color: Colors.white.withOpacity(0.8)),
+                                fontSize: ScreenUtil().setSp(26.0),
+                                color: Colors.white),
                           ),
                           SizedBox(
                             height: ScreenUtil().setHeight(10.0),
@@ -83,12 +96,12 @@ class _HomeViewState extends State<HomeView> {
                               child: Text('ANFRAGE ABSCHICKEN',
                                   style: TextStyle(
                                       fontFamily: 'medium',
-                                      fontSize: ScreenUtil().setSp(13.5),
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white.withOpacity(0.8))),
+                                      fontSize: ScreenUtil().setSp(15),
+                                      letterSpacing: -0.1,
+                                      color: Colors.white)),
                               style: ElevatedButton.styleFrom(
                                   primary: Color(0xFF3DB1A2)),
-                              onPressed: () {},
+                              onPressed: () => Provider.of<BottomBarProvider>(context,listen:false).updatePageNo(1),
                             ),
                           ),
                           SizedBox(

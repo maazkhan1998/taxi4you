@@ -49,8 +49,10 @@ class _VideoCardState extends State<VideoCard> {
                             Text(
                               widget.title,
                               style: TextStyle(
-                                fontSize: ScreenUtil().setSp(18.0),
-                                color: Colors.black.withOpacity(0.5),
+                                fontSize: ScreenUtil().setSp(20.0),
+                                fontFamily: 'medium',
+                                letterSpacing: -0.9,
+                                color: Color.fromRGBO(51, 51, 51, 1)
                               ),
                             ),
                             Align(
@@ -58,7 +60,7 @@ class _VideoCardState extends State<VideoCard> {
                               child: Container(
                                 margin: EdgeInsets.only(top: ScreenUtil().setHeight(4.0)),
                                 child: Image.asset(
-                                  'assets/play.png',
+                                  'assets/play@3x.png',
                                   height: ScreenUtil().setHeight(26.0),
                                   width: ScreenUtil().setWidth(26.0),
                                   fit: BoxFit.cover,

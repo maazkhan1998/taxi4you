@@ -1,6 +1,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:taxiforyou/provider/bottomBarProvider.dart';
 import 'package:taxiforyou/screens/contact.dart';
@@ -17,12 +18,12 @@ class HomeScr extends StatefulWidget {
 class _HomeScrState extends State<HomeScr> {
   List<String> icons = [
     'assets/outlined-ui-home@3x.png',
-    'assets/clipboard@3x.png',
-    'assets/date@3x.png',
+    '',
+    'assets/play@3x.png',
     'assets/account@3x.png'
   ];
 
-  List<String> titles = ['Homepage', 'Works', 'Calendar', 'Contact Us'];
+  List<String> titles = ['Homepage', 'Service', 'Video', 'Contact Us'];
 
   int _bottomNavIndex = 0;
 
@@ -33,7 +34,7 @@ class _HomeScrState extends State<HomeScr> {
       case 1:
         return OurFleetScr();
       case 2:
-        return Center(child: Text('Calendar'));
+        return VideosScr();
       case 3:
         return ContactScr();
       case 4:
@@ -61,8 +62,8 @@ class _HomeScrState extends State<HomeScr> {
                 color:Colors.black,
               ),
               if(index==1)
-              ImageIcon(
-                AssetImage(icons[1]),
+              Icon(
+                FontAwesomeIcons.car,
                 color:  Colors.black,
               ),
               if(index==2)
@@ -82,7 +83,7 @@ class _HomeScrState extends State<HomeScr> {
                   maxLines: 1,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: ScreenUtil().setSp(12.0)),
+                      fontSize: ScreenUtil().setSp(10.0)),
                 ),
               )
             ],

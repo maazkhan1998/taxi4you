@@ -24,14 +24,14 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
     'assets/Phone Right@3x.png'
   ];
 
-  List<String> descList=[
+  List<String> descList = [
     'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei',
     'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei',
     'Die Taxi- und Limousinenbranche ist gesättigt mit Fahrerinnen und Fahrern der gleichen Klasse. Wir versprechen Zuverlässigkei'
   ];
 
   introPage(String img, String descr, int index) {
-    return Center(child: Image.asset(img)); 
+    return Center(child: Image.asset(img));
   }
 
   int _currentPage = 0;
@@ -43,12 +43,12 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
     return list;
   }
 
-  initState(){
+  initState() {
     controller = ScrollController();
     super.initState();
   }
 
-  double position=0;
+  double position = 0;
 
   Widget _indicator(bool isActive) {
     return isActive
@@ -97,7 +97,9 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                     builder: (BuildContext context) => HomeScr())),
             child: Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(right: ScreenUtil().setWidth(34.0), top: ScreenUtil().setHeight(34.0)),
+                margin: EdgeInsets.only(
+                    right: ScreenUtil().setWidth(34.0),
+                    top: ScreenUtil().setHeight(34.0)),
                 child: Text(
                   'SKIP',
                   textAlign: TextAlign.right,
@@ -112,11 +114,11 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
               listController: controller,
               scrollDirection: Axis.horizontal,
               updateOnScroll: true,
-              itemBuilder: (context,i)=>introPage(assetList[i], 'descr', i),
-              onItemFocus: (i){
-                if(i<_currentPage)position-=200;
-                setState(()=>_currentPage=i);
-                },
+              itemBuilder: (context, i) => introPage(assetList[i], 'descr', i),
+              onItemFocus: (i) {
+                if (i < _currentPage) position -= 200;
+                setState(() => _currentPage = i);
+              },
               itemCount: assetList.length,
               itemSize: ScreenUtil().setWidth(240),
               padding: EdgeInsets.all(0),
@@ -142,22 +144,22 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
           //       i),
           // )),
           AnimatedContainer(
-            duration: Duration(milliseconds: 300),
-                width: double.infinity,
-                padding:
-                    EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
-                child: Text(
-                  descList[_currentPage],
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    height: 1.6,
-                    fontFamily: 'roman',
-                    color: Colors.white.withOpacity(0.8),
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 0.4,
-                    fontSize: 14.0,
-                  ),
-                )),
+              duration: Duration(milliseconds: 300),
+              width: double.infinity,
+              padding:
+                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
+              child: Text(
+                descList[_currentPage],
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  height: 1.6,
+                  fontFamily: 'roman',
+                  color: Colors.white.withOpacity(0.8),
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.4,
+                  fontSize: 14.0,
+                ),
+              )),
           Container(
             margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(20)),
             padding:
@@ -172,18 +174,9 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                   children: _buildPageIndicatorStatic(),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    if(_currentPage<2){
-                      position+=200;
-                      controller.jumpTo(position);
-                    }
-                    else Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_)=>HomeScr()
-                      )
-                    );
-                  },
-                                    child: Container(
+                  onTap: () => Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => HomeScr())),
+                  child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(50.0)),

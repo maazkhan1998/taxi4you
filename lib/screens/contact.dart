@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:taxiforyou/provider/bottomBarProvider.dart';
 import 'package:taxiforyou/screens/mapScreen.dart';
 import 'package:taxiforyou/widgets/customtextfield.dart';
 import 'package:taxiforyou/widgets/messagefield.dart';
@@ -10,7 +12,6 @@ class ContactScr extends StatefulWidget {
 }
 
 class _ContactScrState extends State<ContactScr> {
-
   contactItem(String image, String text) {
     return Row(
       children: [
@@ -42,27 +43,34 @@ class _ContactScrState extends State<ContactScr> {
         context: context,
         builder: (context) {
           return SimpleDialog(
-            insetPadding:EdgeInsets.symmetric(horizontal: 0),
-            backgroundColor: Color(0xFFdedede),
-            elevation: 0.5,
+            insetPadding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(22.0)),
+            // backgroundColor: Color(0xFFdedede),
+            backgroundColor: Colors.white,
+            elevation: 4,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0)),
-            contentPadding:
-                EdgeInsets.symmetric(vertical: 3.0, horizontal: 12.0),
-            titlePadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 20.0),
+            contentPadding: EdgeInsets.symmetric(
+                vertical: ScreenUtil().setHeight(3.0),
+                horizontal: ScreenUtil().setWidth(20.0)),
+            titlePadding: EdgeInsets.symmetric(
+                horizontal: ScreenUtil().setHeight(20.0),
+                vertical: ScreenUtil().setWidth(18.0)),
             title: Container(
               width: double.infinity,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Write Us',
-                style: TextStyle(
-                    fontFamily: 'medium',fontWeight: FontWeight.w500,letterSpacing: -0.5,
-                    fontSize: ScreenUtil().setSp(22.0),
-                    color: Color.fromRGBO(51, 51, 51, 1))),
-                GestureDetector(
-                  onTap: ()=>Navigator.of(context).pop(),
-                  child: Icon(Icons.close,size:18,color:Colors.grey[700]))
+                      style: TextStyle(
+                          fontFamily: 'medium',
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: -0.5,
+                          fontSize: ScreenUtil().setSp(22.0),
+                          color: Color.fromRGBO(51, 51, 51, 1))),
+                  GestureDetector(
+                      onTap: () => Navigator.of(context).pop(),
+                      child:
+                          Icon(Icons.close, size: 18, color: Colors.grey[700]))
                 ],
               ),
             ),
@@ -84,9 +92,9 @@ class _ContactScrState extends State<ContactScr> {
                   controller: number),
               SizedBox(height: ScreenUtil().setHeight(15.0)),
               MessageField(
-                  hint: 'Nachricht eingeben',
-                  inputType: TextInputType.text,
-                  controller: message,
+                hint: 'Nachricht eingeben',
+                inputType: TextInputType.text,
+                controller: message,
               ),
               SizedBox(height: ScreenUtil().setHeight(28.0)),
               Container(
@@ -95,11 +103,12 @@ class _ContactScrState extends State<ContactScr> {
                   child: Text('SEND',
                       style: TextStyle(
                           fontFamily: 'medium',
-                          fontSize: 12.5,letterSpacing: 1,
+                          fontSize: 12.5,
+                          letterSpacing: 1,
                           fontWeight: FontWeight.bold,
                           color: Colors.white.withOpacity(0.8))),
                   style: ElevatedButton.styleFrom(
-                      elevation: 0.5, primary: Colors.teal.shade400 ),
+                      elevation: 0.5, primary: Colors.teal.shade400),
                   onPressed: () {},
                 ),
               ),
@@ -118,35 +127,47 @@ class _ContactScrState extends State<ContactScr> {
         children: [
           MapScreen(),
           Positioned(
-            top: ScreenUtil().setHeight(50),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal:ScreenUtil().setWidth(30)),
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                'assets/arrow back.png',
-                height: 16.0,
-                width: 18.0,
-                color: Colors.black,
-              ),
-              Image.asset(
-                  'assets/search.png',
-                  height: 16.0,
-                  width: 18.0,
-                  color: Colors.black,
-                )
-                ],
-              ),
-            )),
+              top: ScreenUtil().setHeight(50),
+              child: Container(
+                padding:
+                    EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(30)),
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () =>
+                          Provider.of<BottomBarProvider>(context, listen: false)
+                              .updatePageNo(0),
+                      child: Image.asset(
+                        'assets/arrow back.png',
+                        height: 16.0,
+                        width: 18.0,
+                        color: Colors.black,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: _writeUs,
+                                          child: Image.asset(
+                        'assets/search.png',
+                        height: 16.0,
+                        width: 18.0,
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
+                ),
+              )),
           Positioned(
             bottom: 0.0,
             child: Container(
               height: ScreenUtil().setHeight(350.0),
               width: ScreenUtil().screenWidth - 40,
-              margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20.0)),
-              padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20.0), vertical: ScreenUtil().setHeight(15.0)),
+              margin:
+                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20.0)),
+              padding: EdgeInsets.symmetric(
+                  horizontal: ScreenUtil().setWidth(20.0),
+                  vertical: ScreenUtil().setHeight(15.0)),
               decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -166,19 +187,20 @@ class _ContactScrState extends State<ContactScr> {
                   SizedBox(
                     height: ScreenUtil().setHeight(20),
                   ),
-                  contactItem('assets/Group 2@3x.png','Ettenhauserstrasse 46 8620 Wetzikon ZH'),
+                  contactItem('assets/Group 2@3x.png',
+                      'Ettenhauserstrasse 46 8620 Wetzikon ZH'),
                   SizedBox(
                     height: ScreenUtil().setHeight(15),
                   ),
-                  contactItem('assets/Group 3@3x.png','+41 79 920 70 70'),
+                  contactItem('assets/Group 3@3x.png', '+41 79 920 70 70'),
                   SizedBox(
                     height: ScreenUtil().setHeight(15),
                   ),
-                  contactItem('assets/Group 4@3x.png','+41 79 920 70 70'),
+                  contactItem('assets/Group 4@3x.png', '+41 79 920 70 70'),
                   SizedBox(
                     height: ScreenUtil().setHeight(15),
                   ),
-                  contactItem('assets/Group 5@3x.png','info@taxiforyou.ch'),
+                  contactItem('assets/Group 5@3x.png', 'info@taxiforyou.ch'),
                   SizedBox(
                     height: ScreenUtil().setHeight(20),
                   ),

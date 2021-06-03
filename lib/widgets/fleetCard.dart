@@ -35,7 +35,7 @@ class _FleetCardState extends State<FleetCard> {
             right: -128.0,
             top: 0.0,
             child: Container(
-              height: 180,width: 380,
+              height: 175,width: 380,
               child: Image.asset(widget.image)),
           ),
           Container(
@@ -46,9 +46,11 @@ class _FleetCardState extends State<FleetCard> {
             Text(
               widget.carName,
               style: TextStyle(
-                  fontSize: ScreenUtil().setSp(20.0),
-                  fontWeight: FontWeight.w400,
-                  color: Color.fromRGBO(51, 51, 51, 1)),
+                  fontSize: ScreenUtil().setSp(18.0),
+                  fontWeight: FontWeight.w200,
+                  letterSpacing: -0.95,
+                  fontFamily: 'heavy',
+                  color: Color.fromRGBO(51, 51, 51, 0.95)),
             ),
             Text(
               'HYBRID',
@@ -58,7 +60,7 @@ class _FleetCardState extends State<FleetCard> {
                   fontWeight: FontWeight.w500,
                   color: Colors.grey[300]),
             ),
-            SizedBox(height: ScreenUtil().setHeight(40.0)),
+            SizedBox(height: ScreenUtil().setHeight(35.0)),
             Container(
               width: ScreenUtil().setWidth(68),
               child: Text(

@@ -37,6 +37,7 @@ dependencies:
   auto_size_text: ^2.1.0
   provider: ^5.0.0
   scroll_snap_list: ^0.8.1
+  font_awesome_flutter: ^8.8.1
 
 dev_dependencies:
   flutter_test:
@@ -44,9 +45,10 @@ dev_dependencies:
 
 flutter_native_splash:
   image: assets/Splash.png
-  color: "#FFFFFF"
   fill: true
-  android_disable_fullscreen: true
+  color: "#FFFFFF"
+  android_disable_fullscreen: false
+  fullscreen: true
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
