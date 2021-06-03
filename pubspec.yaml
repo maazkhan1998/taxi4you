@@ -44,9 +44,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter_native_splash:
-  image: assets/Splash.png
-  fill: true
-  color: "#FFFFFF"
+  image: assets/splashlogo.png
+  background_image: "assets/Splash@2x.png"
   android_disable_fullscreen: false
   fullscreen: true
 # For information on the generic Dart part of this file, see the
