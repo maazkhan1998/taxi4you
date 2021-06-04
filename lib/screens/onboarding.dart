@@ -31,7 +31,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
   ];
 
   introPage(String img, String descr, int index) {
-    return Center(child: Image.asset(img));
+    return Center(child: Image.asset(img,fit: BoxFit.cover,));
   }
 
   int _currentPage = 0;
@@ -120,7 +120,7 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                 setState(() => _currentPage = i);
               },
               itemCount: assetList.length,
-              itemSize: ScreenUtil().setWidth(240),
+              itemSize: ScreenUtil().setWidth(280),
               padding: EdgeInsets.all(0),
               duration: 300,
               curve: Curves.easeInOut,
@@ -174,8 +174,13 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                   children: _buildPageIndicatorStatic(),
                 ),
                 GestureDetector(
-                  onTap: () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => HomeScr())),
+                  onTap: (){
+                    if(_currentPage==0)controller.animateTo(200, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+                    if(_currentPage==1)controller.animateTo(600, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+                    if(_currentPage==2)Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_)=>HomeScr()
+                    ));
+                  },
                   child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.2),

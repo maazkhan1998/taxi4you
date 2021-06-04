@@ -17,6 +17,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:  AppBar(
+        backgroundColor: Colors.transparent.withOpacity(0),
         automaticallyImplyLeading: false,
           titleSpacing: MySize.size34,
           toolbarHeight: ScreenUtil().setHeight(65.0),
@@ -24,7 +25,10 @@ class _HomeViewState extends State<HomeView> {
           flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF4AA599), Color(0xFF3DB1A2)],
+              colors: [
+                Color.fromRGBO(74, 165, 153, 1),
+                 Color.fromRGBO(51, 188, 170, 1)
+                 ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
               stops: [0.5, 1.0],

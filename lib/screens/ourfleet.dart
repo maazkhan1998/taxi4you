@@ -18,14 +18,17 @@ class _OurFleetScrState extends State<OurFleetScr> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.transparent.withOpacity(0),
         toolbarHeight: ScreenUtil().setHeight(65.0),
         systemOverlayStyle:
             SystemUiOverlayStyle(statusBarColor: Color(0xFF3DB1A2)),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF4AA599),
-               Color(0xFF3DB1A2)],
+              colors: [
+                Color.fromRGBO(74, 165, 153, 1),
+                Color.fromRGBO(51, 188, 170, 1)
+               ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
               stops: [0.5, 1.0],
