@@ -174,13 +174,11 @@ class _OnBoardingScrState extends State<OnBoardingScr> {
                   children: _buildPageIndicatorStatic(),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    if(_currentPage==0)controller.animateTo(200, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
-                    if(_currentPage==1)controller.animateTo(600, duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
-                    if(_currentPage==2)Navigator.of(context).push(MaterialPageRoute(
+                  onTap: ()=>Navigator.of(context).push(
+                    MaterialPageRoute(
                       builder: (_)=>HomeScr()
-                    ));
-                  },
+                    )
+                  ),
                   child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.2),
